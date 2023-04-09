@@ -48,10 +48,10 @@ public class CustmerController {
 		return repository.getByAccountNum(accountNum);
 	}
 	
-	@DeleteMapping("/DeleteCustomerByAccNum/{custid}")
+	@DeleteMapping("/DeleteCustomerByCustid/{custid}")
 	public String getCustomeByAccountNum(@PathVariable Integer custid){
-		Customer cust = (Customer) repository.getByCustId(custid);
-		repository.delete(cust);
+		List<Customer> cust = (List<Customer>) repository.getByCustId(custid);
+		repository.deleteAll(cust);
 		return "Customer Deleted...";
 	}
 
