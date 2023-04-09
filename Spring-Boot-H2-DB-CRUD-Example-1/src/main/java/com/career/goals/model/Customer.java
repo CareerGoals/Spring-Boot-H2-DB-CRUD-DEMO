@@ -22,6 +22,8 @@ public class Customer {
 	private String custName;
 	private String custAddress;
 	private String mobileNum;
+	private String accountNum;
+	
 	public int getCustId() {
 		return custId;
 	}
@@ -52,10 +54,10 @@ public class Customer {
 	public void setMobileNum(String mobileNum) {
 		this.mobileNum = mobileNum;
 	}
-	@Override
-	public String toString() {
-		return "Customer [custId=" + custId + ", age=" + age + ", custName=" + custName + ", custAddress=" + custAddress
-				+ ", mobileNum=" + mobileNum + "]";
+	public String getAccountNum() {
+		return accountNum;
 	}
-
+	public void setAccountNum(String accountNum) {
+		this.accountNum = accountNum;
+	}
 }

@@ -3,9 +3,11 @@ package com.career.goals.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,6 +41,18 @@ public class CustmerController {
 	@GetMapping("/getCustomerById/{custid}")
 	public List<Customer> getCustomeByCustId(@PathVariable Integer custid){
 		return repository.getByCustId(custid);
+	}
+	
+	@GetMapping("/getCustomerByAccNum/{accountNum}")
+	public List<Customer> getCustomeByAccountNum(@PathVariable String accountNum){
+		return repository.getByAccountNum(accountNum);
+	}
+	
+	@DeleteMapping("/DeleteCustomerByAccNum/{custid}")
+	public String getCustomeByAccountNum(@PathVariable Integer custid){
+		Customer cust = (Customer) repository.getByCustId(custid);
+		repository.delete(cust);
+		return "Customer Deleted...";
 	}
 
 }
